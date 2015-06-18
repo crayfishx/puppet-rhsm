@@ -20,6 +20,7 @@ Use Puppet to add or remove a subscription based on it's pool ID
 ## Hiera
 
 The rhsm class also provides a helper using `create_resources()` to configure any subscriptions in hiera
+
     ---
     rhsm::subscriptions:
       8e8e7f7a77554a776277ac6dca654: {}
