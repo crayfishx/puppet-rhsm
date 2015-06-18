@@ -7,11 +7,11 @@
   "source": "http://github.com/crayfishx/puppet-rhsm",
   "project_page": "https://github.com/crayfishx/puppet-rhsm",
   "issues_url": "https://github.com/crayfishx/puppet-rhsm/issues",
-  "dependencies": [
+  "operatingsystem_support": [
     {
-      "name": "puppetlabs-stdlib",
-      "version_range": ">= 1.0.0"
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "7.0" ]
     }
-  ]
+   ],
 }
 
