@@ -1,6 +1,6 @@
 {
   "name": "crayfishx-rhsm",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "crayfishx",
   "summary": "Puppet module for managing Red Hat subscriptions",
   "license": "Apache 2.0",
@@ -12,6 +12,7 @@
     "operatingsystem":"RedHat",
     "operatingsystemrelease":[ "7.0" ]
     }
-   ]
+   ],
+   "dependencies": []
 }
 
