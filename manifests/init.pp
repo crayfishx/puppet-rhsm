@@ -39,8 +39,10 @@ class rhsm (
   $subscriptions = {},
   $named_subscriptions = {},
   $pool_names = {},
+  $repos = {},
 ) {
 
+  create_resources('rh_repo', $repos, { "ensure" => "present" })
   create_resources('rh_subscription', $subscriptions, { "ensure" => "present" })
   create_resources('rhsm::named_subscription', $named_subscriptions, { "ensure" => "present" })
 
