@@ -25,9 +25,9 @@ Enable or disable RH subscriptions based on their pool ID
 Use Puppet to add a repo using subscription manager
 
 ```puppet
-   rh_repo { 'rhel-7-server-extras-rpms':
+rh_repo { 'rhel-7-server-extras-rpms':
  ensure => present,
-  }
+}
 ```
 
 
