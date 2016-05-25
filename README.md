@@ -26,7 +26,7 @@ Use Puppet to add a repo using subscription manager
 
 ```puppet
    rh_repo { 'rhel-7-server-extras-rpms':
-     ensure => present,
+ ensure => present,
   }
 ```
 
@@ -35,22 +35,22 @@ Use Puppet to add a repo using subscription manager
 Use Puppet to add or remove a subscription based on it's pool ID
 
 ```puppet
-    rh_subscription { '8e8e7f7a77554a776277ac6dca654':
-      ensure => present,
-    }
+rh_subscription { '8e8e7f7a77554a776277ac6dca654':
+  ensure => present,
+}
 ```
 ## Hiera
 
 The rhsm class also provides a helper using `create_resources()` to configure any subscriptions or repos in hiera
 
 ```yaml
-    ---
-    rhsm::subscriptions:
-      8e8e7f7a77554a776277ac6dca654: {}
-      8e8e7f7a77554a776277e63d13ca4: {}
+---
+rhsm::subscriptions:
+  8e8e7f7a77554a776277ac6dca654: {}
+  8e8e7f7a77554a776277e63d13ca4: {}
 
-    rhsm::repos:
-      rhel-7-server-optional-rpms: {}
+rhsm::repos:
+  rhel-7-server-optional-rpms: {}
 
 ```
 
@@ -59,33 +59,33 @@ The rhsm class also provides a helper using `create_resources()` to configure an
 Puppet will automatically configure these subscriptions when the rhsm class is declared.
 
 ```puppet
-    class { '::rhsm': }
+class { '::rhsm': }
 ```
 
 The module also provides a way to store pool IDs with corresponding readable names and refer to those in your manifests
 ```yaml
-    ---
-    rhsm::pool_names:
-      rhel_extras:  8e8e7f7a77554a776277ac6dca654
-      oracle_stuff: 8e8e7f7a77554a776277e63d13ca4
+---
+rhsm::pool_names:
+  rhel_extras:  8e8e7f7a77554a776277ac6dca654
+  oracle_stuff: 8e8e7f7a77554a776277e63d13ca4
 ```
 You can then declare these subscriptions from hiera....
 
 ```yaml
-    ---
-    rhsm::named_subscriptions:
-      rhel_extras: {}
-      oracle_stuff: {}
+---
+rhsm::named_subscriptions:
+  rhel_extras: {}
+  oracle_stuff: {}
 ```
 
 Or use the `rhsm::named_subscription` defined resource type directly
 
 ```puppet
-    class { '::rhsm': }
+class { '::rhsm': }
 
-    rhsm::named_subscription { 'oracle_stuff':
-      ensure => present,
-    }
+rhsm::named_subscription { 'oracle_stuff':
+  ensure => present,
+}
 ```
 ## Credits
 
