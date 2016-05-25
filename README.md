@@ -19,6 +19,10 @@ Manage yum repos via the subscription manager
 
 Enable or disable RH subscriptions based on their pool ID
 
+### rhsm::named_subscription
+
+Manage `rh_subscription` resources using a hash to map human readable names to pool ID's
+
 
 ## Usage
 
